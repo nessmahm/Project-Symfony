@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}pfe par entreprise{% endblock %}
+
+
+
+
+{% block PageTitle %}
+{% endblock %}
+{% block body %}
+
+    <div class="alert alert-success" role="alert">
+        Nombre de Pfe par entreprise
+    </div>
+ {% for entreprise in entreprises  %}
+
+     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+         <div class="card-header">{{ entreprise.designation }}</div>
+         <div class="card-body">
+             <h5 class="card-title">{{ entreprise.pfe|length  }}</h5>
+         </div>
+     </div>
+
+ {% endfor %}
+
+{% endblock %}
