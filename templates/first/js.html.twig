@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block PageTitle %}
+    JavaScript
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+   Mes options : Mettre en exergue ke paragraphe au click
+    <input type="checkbox" id="checked" name="name"  >
+    <br>
+    <label > Taille de l'écriture</label>
+    <input type="number" class="taille" name="name" value="10"  >
+   <br>
+    <label>Police:</label>
+    <select name="police" id="police">
+        <option value="">--Please choose an option--</option>
+        <option value="Garmond">Garmond</option>
+        <option value="Arial">Arial</option>
+        <option value="Souvenir">Souvenir</option>
+        <option value="Palatino">Palatino</option>
+        <option value="Script">Script</option>
+        <option value="Bookman">Bookman</option>
+    </select>
+<script src="{{asset('events.js')}}" ></script>
+{% endblock %}

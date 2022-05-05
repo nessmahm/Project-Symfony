@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block PageTitle %}
+    Ajouter {% if personne is defined %} une personne {% else %} une voiture {% endif %}
+{% endblock %}
+
+
+
+
+{% block body %}
+
+{{ form(form) }}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+    {% for voiture in voitures %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ voiture.matricule }}</h5>
+                <a href="{{ path('app_voiture_d', { id: voiture.id} ) }}" class="card-link">details</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Welcome!{% endblock %}
+
+
+
+
+
+{% block body %}
+
+    <div class="alert alert-info" role="alert">
+        {{ personne }} est d'age {{ personne.age }} d'adresse {{ personne.address}}
+       {% for voiture in personne.voitures %}
+        <a href="{{ path('app_voiture_d', { id: voiture.id} ) }}" class="card-link">details</a>
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}
