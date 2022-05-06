@@ -51,7 +51,7 @@ public function all(ManagerRegistry  $doc,Request $request): Response
 
     $tab = ["card text-white bg-primary mb-3","card text-white bg-secondary mb-3","card text-white bg-success mb-3",
         "card text-white bg-danger mb-3", "card text-dark bg-warning mb-3" ,
-        "card text-dark bg-info mb-3","card text-dark bg-light mb-3","card text-white bg-dark mb-3"];
+        "card text-dark bg-info mb-3","card text-dark bg-light mb-3","card text-white bg-dark mb-3","card text-white bg-dark mb-3"];
     return $this->render('examen/all.html.twig', [
         'entreprises'=>$entreprises,"class"=>$tab
     ]);

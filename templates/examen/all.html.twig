@@ -12,15 +12,27 @@
     <div class="alert alert-success" role="alert">
         Nombre de Pfe par entreprise
     </div>
+<div class="row"  >
  {% for entreprise in entreprises  %}
+     {% if loop.index%2==0 %}
 
-     <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+     <div class="card text-white bg-secondary mb-3"  style="max-width: 18rem;margin: 5px";>
          <div class="card-header">{{ entreprise.designation }}</div>
          <div class="card-body">
              <h5 class="card-title">{{ entreprise.pfe|length  }}</h5>
          </div>
      </div>
 
- {% endfor %}
+     {% else%}
+     <div class="card text-dark bg-light mb-3" style="max-width: 18rem;margin: 5px";">
+         <div class="card-header">{{ entreprise.designation }}</div>
+         <div class="card-body">
+             <h5 class="card-title">{{ entreprise.pfe|length  }}</h5>
+         </div>
+     </div>
+
+     {% endif %}
+
+      {% endfor %}
 
 {% endblock %}
