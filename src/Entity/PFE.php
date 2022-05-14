@@ -19,7 +19,7 @@ class PFE
     #[ORM\Column(type: 'string', length: 20)]
     private $nomEtd;
 
-    #[ORM\ManyToOne(targetEntity: Entreprise::class, inversedBy: 'PFE')]
+    #[ORM\ManyToOne(targetEntity: Entreprise::class, inversedBy: 'PFE', )]
     private $entreprise;
 
     public function getId(): ?int

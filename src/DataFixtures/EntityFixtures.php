@@ -14,7 +14,6 @@ class EntityFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        $faker = Factory::create();
         for ($i=1;$i<=10;$i++) {
             $entreprise = new Entreprise();
             $entreprise->setDesignation("entreprise".$i);
@@ -28,6 +27,8 @@ class EntityFixtures extends Fixture
             $manager->persist($pfe);
             $manager->persist($entreprise);
 
-            $manager->flush();
-        }    }
+        }
+        $manager->flush();
+
+    }
 }

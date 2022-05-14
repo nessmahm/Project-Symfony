@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Personne;
+use App\Repository\PFERepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,18 +43,15 @@ class ExamenController extends AbstractController
 
     }
     #[Route('/all', name: 'app_all')]
-public function all(ManagerRegistry  $doc,Request $request): Response
+public function all(PFERepository $rep): Response
 {
 
 
-    $entityManager=$doc->getRepository(Entreprise::class);
-    $entreprises = $entityManager->findAll();
 
-    $tab = ["card text-white bg-primary mb-3","card text-white bg-secondary mb-3","card text-white bg-success mb-3",
-        "card text-white bg-danger mb-3", "card text-dark bg-warning mb-3" ,
-        "card text-dark bg-info mb-3","card text-dark bg-light mb-3","card text-white bg-dark mb-3","card text-white bg-dark mb-3"];
+        $entreprises = $rep->findAllEnter();
+
     return $this->render('examen/all.html.twig', [
-        'entreprises'=>$entreprises,"class"=>$tab
+        'entreprises'=>$entreprises
     ]);
 
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Repository;
-
+use App\Entity\Entreprise;
 use App\Entity\PFE;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -75,4 +76,18 @@ class PFERepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAllEnter()
+    {
+        $result = $this
+            ->createQueryBuilder('pfe')
+            ->select( 'ent.designation as designation' ,'count (pfe.id) as nombre ' )
+            ->From ( 'App\Entity\Entreprise','ent')
+            ->Where ('ent=pfe.entreprise')
+            ->GroupBy ('ent.id')
+            ->getQuery()
+            ->getResult()
+        ;
+
+        return $result;
+    }
 }
